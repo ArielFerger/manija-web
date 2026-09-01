@@ -1,0 +1,2 @@
+//todo: FACIL: crear la cabezara del proyecto, que tenga un logo y un menu de navegacion con 3 links: Home, Contacto y Acerca de
+//! los 3 links no deben apuntar a ningun lado, solo deben estar en el menu de navegacion
