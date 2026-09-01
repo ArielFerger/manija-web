@@ -31,4 +31,3 @@ Si es correcta la autenticación mostrar el texto "ingreso correctamente" en cas
 Adjuntar un comprimido en el formato que desee, conteniendo todo el código fuente funcional y un archivo con el nombre del grupo y los integrantes.
 El TP se evalúa con una nota de 0 a 100, dependiendo del cumplimiento del requerimiento del mismo, contemplando los detalles en su desarrollo.
 
-# megustalapija
