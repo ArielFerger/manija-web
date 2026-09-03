@@ -1,6 +1,9 @@
 //todo: FACIL: crear la cabezara del proyecto, que tenga un logo y un menu de navegacion con 3 links: Home, Contacto y Acerca de
 //! los 3 links no deben apuntar a ningun lado, solo deben estar en el menu de navegacion
 <header>
+    <div>
+        <img src="image/pelado.jpg" alt="imagen pelado">
+    </div> <br>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">MENÚ</a>
