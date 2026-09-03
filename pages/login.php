@@ -33,7 +33,7 @@
 
                     <form
                         id="loginForm"
-                        action="../php/includesBasics/procesoLogin.php"
+                        action="../php/procesoLogin.php"
                         method="POST"
                     >
 

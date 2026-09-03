@@ -1,5 +1,6 @@
-//todo: FACIL: crear la cabezara del proyecto, que tenga un logo y un menu de navegacion con 3 links: Home, Contacto y Acerca de
-//! los 3 links no deben apuntar a ningun lado, solo deben estar en el menu de navegacion
+<?php /* FACIL: cabecera con logo y menu de navegacion con 3 links, sin apuntar a ningun lado */ ?>
+<!-- fix: login.php no tenia <link> a Bootstrap, se agrega aca porque header.php se incluye en todas las paginas -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 <header>
     <div>
         <img src="image/pelado.jpg" alt="imagen pelado">

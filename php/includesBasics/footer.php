@@ -1,4 +1,4 @@
-//todo: FACIL: crear el pie de pagina de la web
+<?php /* FACIL: pie de pagina de la web */ ?>
     <footer>
     <div>
         <p>info de contacto: <a href="mailto:enrique@gmail.com">enrique@gmail.com</a></p>
