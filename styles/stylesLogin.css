@@ -1,1 +1,9 @@
 /* HOLA MUNDO */
+
+.background {
+  background-color: #913e3e;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
