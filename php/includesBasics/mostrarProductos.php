@@ -1,0 +1,1 @@
+// crear una tabla con los productos guardados en localstorage, y mostrarla en la pagina de administracion
