@@ -1,6 +1,9 @@
 <?php
 
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 if (!isset($_SESSION["usuario"])) {
     header("Location: login.php");
     exit;
@@ -9,8 +12,8 @@ if (!isset($_SESSION["usuario"])) {
 include("../php/includesBasics/header.php"); ?>
 
 <div class="container mt-5 text-center">
-    <h1># q onda estas en manija web</h1>
-    
+    <h1>q onda estas en manija web</h1>
+
     <p>Has ingresado correctamente</p>
 </div>
 
