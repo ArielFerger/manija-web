@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -40,11 +41,21 @@
                     <a class="nav-link" href="index.php">Inicio</a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="administracion.php">
-                        Administración
-                    </a>
-                </li>
+                <?php if (isset($_SESSION["usuario"])): ?>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="administracion.php">
+                            Administración
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../php/logout.php">
+                            Cerrar sesión
+                        </a>
+                    </li>
+
+                <?php endif; ?>
 
             </ul>
 
