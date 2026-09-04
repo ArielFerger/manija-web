@@ -1,2 +1,13 @@
-//todo: crear mini page que diga "ingreso correctamente" y un boton que diga "VOLVER AL FORMULARIO" y que redirija al login.php
-//todo: añadir info de la pagina de manijas
+<?php include("../php/includesBasics/header.php"); ?>
+
+<div class="container mt-5 text-center">
+
+    <h1># q onda estas en manija web</h1>
+
+    <p>
+        Has ingresado correctamente
+    </p>
+
+</div>
+
+<?php include("../php/includesBasics/footer.php"); ?>

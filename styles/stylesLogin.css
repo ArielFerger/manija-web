@@ -1,9 +1,35 @@
-/* HOLA MUNDO */
+body {
+  min-height: 100vh;
+  background-color: #f5f6f8;
+}
 
-.background {
-  background-color: #913e3e;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.login-container {
+  margin-top: 40px;
+}
+
+.login-container .card {
+  border: none;
+  border-radius: 12px;
+}
+
+.login-container h2 {
+  font-weight: 600;
+}
+
+.login-container .form-control {
+  border-radius: 8px;
+}
+
+.login-container .btn {
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.login-container .btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.login-container .alert {
+  border-radius: 8px;
 }

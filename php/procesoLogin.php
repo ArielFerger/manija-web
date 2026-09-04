@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 }
 
 $usuario = trim($_POST["usuario"] ?? "");
-$password = trim($_POST["password"] ?? "");
+$password = $_POST["password"] ?? "";
 
 $usuarioCorrecto = "fcytuader";
 $passwordCorrecta = "programacionavanzada";

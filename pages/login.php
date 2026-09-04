@@ -1,6 +1,6 @@
 <?php include("../php/includesBasics/header.php"); ?>
 
-<div class="container mt-5">
+<div class="container login-container">
 
     <div class="row justify-content-center">
 
