@@ -13,7 +13,7 @@ include("../php/includesBasics/header.php"); ?>
 
 <div class="container mt-5 text-center">
     <h1>q onda estas en manija web</h1>
-
+    <img src="../image/monito.png" alt="">
     <p>Has ingresado correctamente</p>
 </div>
 
