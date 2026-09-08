@@ -5,7 +5,7 @@
         <p class="mb-0">
             Programación Avanzada - Manija Web
         </p><br>
-        <img src="/manija-web/image/footerFCyT.jpg" alt="">
+        <img src="../image/footerFCyT.jpg" alt="Facultad de Ciencias y Tecnología">
     </div>
 </footer>
 
