@@ -4,7 +4,8 @@
     <div class="container">
         <p class="mb-0">
             Programación Avanzada - Manija Web
-        </p>
+        </p><br>
+        <img src="/manija-web/image/footerFCyT.jpg" alt="">
     </div>
 </footer>
 
