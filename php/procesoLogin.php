@@ -20,6 +20,7 @@ if ($usuario === "" || $password === "") {
 }
 
 if ($usuario === $usuarioCorrecto && $password === $passwordCorrecta) {
+    session_regenerate_id(true);
     $_SESSION["usuario"] = $usuario;
     header("Location: ../pages/index.php");
     exit;

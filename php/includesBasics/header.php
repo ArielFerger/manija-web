@@ -16,7 +16,7 @@ if (session_status() === PHP_SESSION_NONE) {
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
-
+    
     <link rel="stylesheet" href="../styles/stylesLogin.css">
 </head>
 
@@ -70,3 +70,5 @@ if (session_status() === PHP_SESSION_NONE) {
 </nav>
 
 <main class="container py-4">
+
+<script src="/manija-web/js/cambiosConfiguracion.js"></script>

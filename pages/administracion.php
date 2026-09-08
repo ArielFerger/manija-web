@@ -100,6 +100,5 @@ include("../php/includesBasics/header.php");
 
 <script src="../js/validarProductoForm.js"></script>
 <script src="../js/guardarProductos.js"></script>
-<script src="../js/cambiosConfiguracion.js"></script>
 
 <?php include("../php/includesBasics/footer.php"); ?>

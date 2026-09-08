@@ -6,45 +6,54 @@ document.addEventListener("DOMContentLoaded", function () {
     const configuracion =
         JSON.parse(localStorage.getItem("configuracion")) || {};
 
-    if (configuracion.modoOscuro) {
-        modoOscuro.checked = true;
+    function aplicarConfiguracion() {
+        const oscuro = configuracion.modoOscuro === true;
+        const fuenteActual = configuracion.fuente || "Arial";
+
+        document.body.classList.toggle("bg-dark", oscuro);
+        document.body.classList.toggle("text-white", oscuro);
+        document.body.style.fontFamily = fuenteActual;
+
+        document.querySelectorAll(".card").forEach(function (card) {
+            card.classList.toggle("bg-dark", oscuro);
+            card.classList.toggle("text-white", oscuro);
+        });
+
+        document.querySelectorAll(".card-header").forEach(function (header) {
+            header.classList.toggle("bg-dark", oscuro);
+            header.classList.toggle("text-white", oscuro);
+        });
+
+        document.querySelectorAll(".table").forEach(function (table) {
+            table.classList.toggle("table-dark", oscuro);
+        });
+
+        document.querySelectorAll(".text-muted").forEach(function (element) {
+            element.classList.toggle("text-white-50", oscuro);
+        });
     }
-
-    if (configuracion.fuente) {
-        fuente.value = configuracion.fuente;
-    }
-
-    aplicarConfiguracion();
-
-    modoOscuro.addEventListener("change", function () {
-        aplicarConfiguracion();
-        guardarConfiguracion();
-    });
-
-    fuente.addEventListener("change", function () {
-        aplicarConfiguracion();
-        guardarConfiguracion();
-    });
 
     function guardarConfiguracion() {
-        const configuracion = {
-            modoOscuro: modoOscuro.checked,
-            fuente: fuente.value
-        };
+        configuracion.modoOscuro = modoOscuro.checked;
+        configuracion.fuente = fuente.value;
 
         localStorage.setItem(
             "configuracion",
             JSON.stringify(configuracion)
         );
+
+        aplicarConfiguracion();
     }
 
-    function aplicarConfiguracion() {
-        if (modoOscuro.checked) {
-            document.body.classList.add("bg-dark", "text-white");
-        } else {
-            document.body.classList.remove("bg-dark", "text-white");
-        }
-
-        document.body.style.fontFamily = fuente.value;
+    if (modoOscuro) {
+        modoOscuro.checked = configuracion.modoOscuro === true;
+        modoOscuro.addEventListener("change", guardarConfiguracion);
     }
+
+    if (fuente) {
+        fuente.value = configuracion.fuente || "Arial";
+        fuente.addEventListener("change", guardarConfiguracion);
+    }
+
+    aplicarConfiguracion();
 });
