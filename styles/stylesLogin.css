@@ -81,7 +81,7 @@ body::before {
 }
 
 .footer-logo {
-  max-width: 280px;
+  max-width: 700px;
   width: 100%;
   height: auto;
 
@@ -148,6 +148,24 @@ body::before {
 
 .login-container .alert {
   border-radius: 8px;
+}
+
+
+/* =========================================================
+   PANEL DE ADMINISTRACIÓN
+   ========================================================= */
+
+.admin-toolbar h1 {
+  font-weight: 700;
+}
+
+@media (min-width: 992px) {
+
+  .admin-sidebar-sticky {
+    position: sticky;
+    top: 88px;
+  }
+
 }
 
 
@@ -282,13 +300,51 @@ body.modo-oscuro::before {
 }
 
 
-.modo-oscuro .alert {
-  color: #fff;
+/*
+ * Colores por variante en vez de forzar texto blanco:
+ * los fondos pastel de Bootstrap (alert-warning, alert-danger,
+ * alert-success) siguen siendo claros, así que "color: #fff"
+ * a secas los dejaba ilegibles. Estos valores están tomados
+ * del theme oscuro nativo de Bootstrap 5.3.
+ */
+.modo-oscuro .alert-warning {
+  background-color: #4d3800;
+  color: #ffe69c;
+  border-color: #665100;
+}
+
+.modo-oscuro .alert-danger {
+  background-color: #4b1113;
+  color: #ea868f;
+  border-color: #842029;
+}
+
+.modo-oscuro .alert-success {
+  background-color: #0a2e1d;
+  color: #75b798;
+  border-color: #0f5132;
 }
 
 
 .modo-oscuro table {
   color: #fff;
+}
+
+
+/*
+ * Regla en CSS (no dependemos del JS) para que cubra también
+ * los ".text-muted" que se generan dinámicamente, como el
+ * mensaje "No hay productos guardados" que se recrea cada vez
+ * que se agrega o elimina un producto desde la tabla.
+ */
+.modo-oscuro .text-muted {
+  color: #adb5bd !important;
+}
+
+
+.modo-oscuro .form-check-input {
+  background-color: #343a40;
+  border-color: #6c757d;
 }
 
 
@@ -305,6 +361,21 @@ body.modo-oscuro::before {
 .modo-oscuro .inicio-card {
   background-color: #212529;
   color: #fff;
+}
+
+
+.modo-oscuro .modal-content {
+  background-color: #212529;
+  color: #fff;
+}
+
+.modo-oscuro .modal-header,
+.modo-oscuro .modal-footer {
+  border-color: #495057;
+}
+
+.modo-oscuro .btn-close {
+  filter: invert(1);
 }
 
 

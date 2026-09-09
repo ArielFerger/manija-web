@@ -1,16 +1,3 @@
-<section class="mt-5">
-
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2>Productos guardados</h2>
-
-        <span
-            id="cantidadProductos"
-            class="badge text-bg-secondary"
-        >
-            0 productos
-        </span>
-    </div>
-
     <div class="table-responsive">
 
         <table class="table table-striped table-bordered align-middle">
@@ -42,8 +29,6 @@
         </table>
 
     </div>
-
-</section>
 
 <div
     class="modal fade"

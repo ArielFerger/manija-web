@@ -3,37 +3,57 @@ const nombreProducto = document.getElementById("nombreProducto");
 const precioProducto = document.getElementById("precioProducto");
 const descripcionProducto = document.getElementById("descripcionProducto");
 const mensajeProducto = document.getElementById("mensajeProducto");
+const btnGuardarProducto = document.getElementById("btnGuardarProducto");
 
-function validarProducto() {
+function obtenerEstadoPrecio() {
 
     const precio = precioProducto.value.trim();
 
-    /*
-     * Nombre y descripción son opcionales.
-     * El precio también puede quedar vacío.
-     *
-     * Solamente validamos que, si se ingresa,
-     * sea un número mayor o igual a 0.
-     */
-    if (precio !== "") {
-
-        const precioNumerico = Number(precio);
-
-        if (isNaN(precioNumerico) || precioNumerico < 0) {
-
-            mensajeProducto.innerHTML = `
-                <div class="alert alert-warning">
-                    El precio debe ser un número mayor o igual a 0.
-                </div>
-            `;
-
-            return false;
-        }
+    if (precio === "") {
+        return { valido: false, vacio: true };
     }
 
-    mensajeProducto.innerHTML = "";
+    const precioNumerico = Number(precio);
 
-    return true;
+    if (isNaN(precioNumerico) || precioNumerico < 0) {
+        return { valido: false, vacio: false };
+    }
+
+    return { valido: true, vacio: false };
+}
+
+function validarProducto() {
+
+    /*
+     * Las 3 condiciones para habilitar el botón:
+     * nombre completo, descripción completa y precio
+     * numérico válido (mayor o igual a 0).
+     */
+    const nombreCompleto = nombreProducto.value.trim() !== "";
+    const descripcionCompleta = descripcionProducto.value.trim() !== "";
+    const estadoPrecio = obtenerEstadoPrecio();
+
+    if (!estadoPrecio.vacio && !estadoPrecio.valido) {
+
+        mensajeProducto.innerHTML = `
+            <div class="alert alert-warning py-2 mb-0">
+                El precio debe ser un número mayor o igual a 0.
+            </div>
+        `;
+
+    } else {
+
+        mensajeProducto.innerHTML = "";
+    }
+
+    const formularioValido =
+        nombreCompleto &&
+        descripcionCompleta &&
+        estadoPrecio.valido;
+
+    btnGuardarProducto.disabled = !formularioValido;
+
+    return formularioValido;
 }
 
 productoForm.addEventListener("submit", function (event) {
@@ -45,4 +65,8 @@ productoForm.addEventListener("submit", function (event) {
     }
 });
 
-precioProducto.addEventListener("input", validarProducto);
+[nombreProducto, precioProducto, descripcionProducto].forEach(function (campo) {
+    campo.addEventListener("input", validarProducto);
+});
+
+validarProducto();

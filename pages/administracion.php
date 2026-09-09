@@ -13,41 +13,69 @@ include("../php/includesBasics/header.php");
 
 <div class="container">
 
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4 admin-toolbar">
+
         <div>
-            <h1>Panel de administración</h1>
+            <h1 class="h3 mb-1">Panel de administración</h1>
             <p class="text-muted mb-0">
                 Gestión de productos y configuración del sitio.
             </p>
         </div>
+
+        <span
+            id="cantidadProductos"
+            class="badge text-bg-primary fs-6 px-3 py-2"
+        >
+            0 productos
+        </span>
+
     </div>
 
     <div class="row g-4">
 
         <div class="col-lg-8">
-            <div class="card shadow-sm">
 
-                <div class="card-header">
-                    <h2 class="h4 mb-0">Productos</h2>
+            <div class="card shadow-sm mb-4">
+
+                <div class="card-header d-flex align-items-center gap-2">
+                    <span>➕</span>
+                    <h2 class="h5 mb-0">Nuevo producto</h2>
                 </div>
 
                 <div class="card-body">
 
                     <?php include("../php/includesBasics/crearProductoForm.php"); ?>
 
-                    <hr class="my-4">
+                </div>
+
+            </div>
+
+
+            <div class="card shadow-sm">
+
+                <div class="card-header d-flex align-items-center gap-2">
+                    <span>📦</span>
+                    <h2 class="h5 mb-0">Productos guardados</h2>
+                </div>
+
+                <div class="card-body">
 
                     <?php include("../php/includesBasics/mostrarProductos.php"); ?>
 
                 </div>
+
             </div>
+
         </div>
 
-        <div class="col-lg-4">
-            <div class="card shadow-sm">
 
-                <div class="card-header">
-                    <h2 class="h4 mb-0">Configuración</h2>
+        <div class="col-lg-4">
+
+            <div class="card shadow-sm admin-sidebar-sticky">
+
+                <div class="card-header d-flex align-items-center gap-2">
+                    <span>⚙️</span>
+                    <h2 class="h5 mb-0">Configuración</h2>
                 </div>
 
                 <div class="card-body">
@@ -91,7 +119,9 @@ include("../php/includesBasics/header.php");
                     </div>
 
                 </div>
+
             </div>
+
         </div>
 
     </div>
