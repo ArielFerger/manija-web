@@ -56,7 +56,7 @@
     <div class="col-12" id="mensajeProducto"></div>
 
 
-    <div class="col-12">
+    <div class="col-12 d-grid d-md-block">
 
         <button
             type="submit"

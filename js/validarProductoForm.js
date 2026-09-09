@@ -23,12 +23,6 @@ function obtenerEstadoPrecio() {
 }
 
 function validarProducto() {
-
-    /*
-     * Las 3 condiciones para habilitar el botón:
-     * nombre completo, descripción completa y precio
-     * numérico válido (mayor o igual a 0).
-     */
     const nombreCompleto = nombreProducto.value.trim() !== "";
     const descripcionCompleta = descripcionProducto.value.trim() !== "";
     const estadoPrecio = obtenerEstadoPrecio();

@@ -41,15 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".form-control, .form-select").forEach(function (element) {
             element.classList.toggle("modo-oscuro-input", oscuro);
         });
-
-        /*
-         * El color de ".text-muted" en modo oscuro se resuelve
-         * por CSS (".modo-oscuro .text-muted"), no acá. Así
-         * cubre también elementos generados dinámicamente
-         * (como el mensaje de "No hay productos guardados"
-         * que se recrea al agregar/eliminar productos) sin
-         * depender de que este script vuelva a recorrer el DOM.
-         */
     }
 
     function guardarConfiguracion() {

@@ -27,7 +27,6 @@ main {
   flex: 1;
 }
 
-
 /* =========================================================
    FONDO GENERAL
    ========================================================= */
@@ -58,7 +57,6 @@ body::before {
     );
 }
 
-
 /* =========================================================
    NAVBAR
    ========================================================= */
@@ -71,7 +69,6 @@ body::before {
   letter-spacing: 0.5px;
 }
 
-
 /* =========================================================
    FOOTER
    ========================================================= */
@@ -81,13 +78,12 @@ body::before {
 }
 
 .footer-logo {
-  max-width: 700px;
+  max-width: 800px;
   width: 100%;
   height: auto;
 
   border-radius: 6px;
 }
-
 
 /* =========================================================
    TARJETAS
@@ -104,14 +100,13 @@ body::before {
     box-shadow 0.2s ease;
 }
 
-.card:hover {
+.inicio-card:hover {
   transform: translateY(-2px);
 }
 
 .card-header {
   border-radius: 14px 14px 0 0 !important;
 }
-
 
 /* =========================================================
    LOGIN
@@ -150,7 +145,6 @@ body::before {
   border-radius: 8px;
 }
 
-
 /* =========================================================
    PANEL DE ADMINISTRACIÓN
    ========================================================= */
@@ -168,21 +162,14 @@ body::before {
 
 }
 
-
 /* =========================================================
    INICIO
    ========================================================= */
 
 .hero-inicio {
-  min-height: 420px;
+  min-height: 280px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-
-  padding: 50px 20px;
+  padding: 40px 30px;
 
   border-radius: 20px;
 
@@ -195,20 +182,18 @@ body::before {
 }
 
 .hero-inicio h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
   font-weight: 700;
 }
 
 .hero-inicio p {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
 }
 
 .hero-monito {
-  max-width: 260px;
+  max-width: 220px;
   width: 100%;
   height: auto;
-
-  margin: 20px auto;
 
   filter: drop-shadow(
     0 10px 15px rgba(0, 0, 0, 0.15)
@@ -221,16 +206,34 @@ body::before {
   transform: scale(1.04);
 }
 
-
 .inicio-card {
-  height: 100%;
-  text-align: center;
-
   padding: 25px;
 
   border-radius: 14px;
 }
 
+.icono-inicio {
+  width: 56px;
+  height: 56px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.6rem;
+
+  border-radius: 50%;
+
+  background: rgba(13, 110, 253, 0.12);
+}
+
+.icono-inicio-destacado {
+  background: #0d6efd;
+}
+
+.inicio-card-destacada {
+  border: 1px solid rgba(13, 110, 253, 0.35);
+}
 
 /* =========================================================
    BOTONES
@@ -247,7 +250,6 @@ body::before {
 
   border-radius: 9px;
 }
-
 
 /* =========================================================
    CONFIGURACIÓN GLOBAL / MODO OSCURO
@@ -272,14 +274,12 @@ body.modo-oscuro::before {
     );
 }
 
-
 .modo-oscuro-elemento {
   background-color: #212529 !important;
   color: #fff !important;
 
   border-color: #495057 !important;
 }
-
 
 .modo-oscuro-input {
   background-color: #343a40 !important;
@@ -288,25 +288,15 @@ body.modo-oscuro::before {
   border-color: #6c757d !important;
 }
 
-
 .modo-oscuro-input::placeholder {
   color: #adb5bd !important;
 }
-
 
 .modo-oscuro-input:focus {
   background-color: #343a40 !important;
   color: #fff !important;
 }
 
-
-/*
- * Colores por variante en vez de forzar texto blanco:
- * los fondos pastel de Bootstrap (alert-warning, alert-danger,
- * alert-success) siguen siendo claros, así que "color: #fff"
- * a secas los dejaba ilegibles. Estos valores están tomados
- * del theme oscuro nativo de Bootstrap 5.3.
- */
 .modo-oscuro .alert-warning {
   background-color: #4d3800;
   color: #ffe69c;
@@ -325,28 +315,18 @@ body.modo-oscuro::before {
   border-color: #0f5132;
 }
 
-
 .modo-oscuro table {
   color: #fff;
 }
 
-
-/*
- * Regla en CSS (no dependemos del JS) para que cubra también
- * los ".text-muted" que se generan dinámicamente, como el
- * mensaje "No hay productos guardados" que se recrea cada vez
- * que se agrega o elimina un producto desde la tabla.
- */
 .modo-oscuro .text-muted {
   color: #adb5bd !important;
 }
-
 
 .modo-oscuro .form-check-input {
   background-color: #343a40;
   border-color: #6c757d;
 }
-
 
 .modo-oscuro .hero-inicio {
   background:
@@ -357,12 +337,18 @@ body.modo-oscuro::before {
     );
 }
 
-
 .modo-oscuro .inicio-card {
   background-color: #212529;
   color: #fff;
 }
 
+.modo-oscuro .icono-inicio {
+  background: rgba(13, 110, 253, 0.25);
+}
+
+.modo-oscuro .inicio-card-destacada {
+  border-color: rgba(13, 110, 253, 0.55);
+}
 
 .modo-oscuro .modal-content {
   background-color: #212529;
@@ -378,15 +364,13 @@ body.modo-oscuro::before {
   filter: invert(1);
 }
 
-
 /* =========================================================
-   RESPONSIVE
+   RESPONSIVO
    ========================================================= */
 
 @media (max-width: 576px) {
 
   .hero-inicio {
-    min-height: 350px;
     padding: 30px 15px;
   }
 
@@ -396,6 +380,10 @@ body.modo-oscuro::before {
 
   .footer-logo {
     max-width: 230px;
+  }
+
+  #tablaProductos .btn-sm {
+    padding: 0.5rem 0.85rem;
   }
 
 }
