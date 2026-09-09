@@ -1,15 +1,131 @@
-body {
-  min-height: 100vh;
-  background-color: #f5f6f8;
+/* =========================================================
+   ESTILOS GENERALES
+   ========================================================= */
+
+html {
+  min-height: 100%;
 }
 
+body {
+  min-height: 100vh;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: #f5f6f8;
+  color: #212529;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+
+  font-family: Arial, sans-serif;
+}
+
+main {
+  flex: 1;
+}
+
+
+/* =========================================================
+   FONDO GENERAL
+   ========================================================= */
+
+body::before {
+  content: "";
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: -1;
+
+  background:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(13, 110, 253, 0.08),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(111, 66, 193, 0.08),
+      transparent 30%
+    );
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar {
+  min-height: 64px;
+}
+
+.navbar-brand {
+  letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.site-footer {
+  margin-top: auto;
+}
+
+.footer-logo {
+  max-width: 280px;
+  width: 100%;
+  height: auto;
+
+  border-radius: 6px;
+}
+
+
+/* =========================================================
+   TARJETAS
+   ========================================================= */
+
+.card {
+  border: none;
+  border-radius: 14px;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.card-header {
+  border-radius: 14px 14px 0 0 !important;
+}
+
+
+/* =========================================================
+   LOGIN
+   ========================================================= */
+
 .login-container {
-  margin-top: 40px;
+  width: 100%;
+  max-width: 450px;
+
+  margin: 40px auto;
 }
 
 .login-container .card {
-  border: none;
-  border-radius: 12px;
+  border-radius: 14px;
 }
 
 .login-container h2 {
@@ -34,42 +150,181 @@ body {
   border-radius: 8px;
 }
 
-/* Configuración global */
 
-body {
-  transition: background-color 0.2s ease, color 0.2s ease;
+/* =========================================================
+   INICIO
+   ========================================================= */
+
+.hero-inicio {
+  min-height: 420px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 50px 20px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(13, 110, 253, 0.10),
+      rgba(111, 66, 193, 0.08)
+    );
 }
+
+.hero-inicio h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+}
+
+.hero-inicio p {
+  font-size: 1.15rem;
+}
+
+.hero-monito {
+  max-width: 260px;
+  width: 100%;
+  height: auto;
+
+  margin: 20px auto;
+
+  filter: drop-shadow(
+    0 10px 15px rgba(0, 0, 0, 0.15)
+  );
+
+  transition: transform 0.3s ease;
+}
+
+.hero-monito:hover {
+  transform: scale(1.04);
+}
+
+
+.inicio-card {
+  height: 100%;
+  text-align: center;
+
+  padding: 25px;
+
+  border-radius: 14px;
+}
+
+
+/* =========================================================
+   BOTONES
+   ========================================================= */
+
+.btn {
+  border-radius: 8px;
+}
+
+.btn-inicio {
+  padding: 10px 24px;
+
+  font-weight: 600;
+
+  border-radius: 9px;
+}
+
+
+/* =========================================================
+   CONFIGURACIÓN GLOBAL / MODO OSCURO
+   ========================================================= */
 
 body.modo-oscuro {
-  background-color: #212529;
-  color: #fff;
+  background-color: #181a1b;
+  color: #f8f9fa;
 }
+
+body.modo-oscuro::before {
+  background:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(13, 110, 253, 0.12),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(111, 66, 193, 0.12),
+      transparent 30%
+    );
+}
+
 
 .modo-oscuro-elemento {
   background-color: #212529 !important;
   color: #fff !important;
+
   border-color: #495057 !important;
 }
+
 
 .modo-oscuro-input {
   background-color: #343a40 !important;
   color: #fff !important;
+
   border-color: #6c757d !important;
 }
+
 
 .modo-oscuro-input::placeholder {
   color: #adb5bd !important;
 }
+
 
 .modo-oscuro-input:focus {
   background-color: #343a40 !important;
   color: #fff !important;
 }
 
+
 .modo-oscuro .alert {
   color: #fff;
 }
 
+
 .modo-oscuro table {
   color: #fff;
+}
+
+
+.modo-oscuro .hero-inicio {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(13, 110, 253, 0.15),
+      rgba(111, 66, 193, 0.15)
+    );
+}
+
+
+.modo-oscuro .inicio-card {
+  background-color: #212529;
+  color: #fff;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 576px) {
+
+  .hero-inicio {
+    min-height: 350px;
+    padding: 30px 15px;
+  }
+
+  .hero-monito {
+    max-width: 200px;
+  }
+
+  .footer-logo {
+    max-width: 230px;
+  }
+
 }
