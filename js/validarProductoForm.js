@@ -5,27 +5,39 @@ const descripcionProducto = document.getElementById("descripcionProducto");
 const mensajeProducto = document.getElementById("mensajeProducto");
 
 function validarProducto() {
-    const nombre = nombreProducto.value.trim();
-    const precio = Number(precioProducto.value);
-    const descripcion = descripcionProducto.value.trim();
 
-    if (nombre === "" || descripcion === "") {
-        mensajeProducto.innerHTML =
-            '<div class="alert alert-warning">Complete todos los campos.</div>';
-        return false;
-    }
+    const precio = precioProducto.value.trim();
 
-    if (isNaN(precio) || precio <= 0) {
-        mensajeProducto.innerHTML =
-            '<div class="alert alert-warning">El precio debe ser un número positivo.</div>';
-        return false;
+    /*
+     * Nombre y descripción son opcionales.
+     * El precio también puede quedar vacío.
+     *
+     * Solamente validamos que, si se ingresa,
+     * sea un número mayor o igual a 0.
+     */
+    if (precio !== "") {
+
+        const precioNumerico = Number(precio);
+
+        if (isNaN(precioNumerico) || precioNumerico < 0) {
+
+            mensajeProducto.innerHTML = `
+                <div class="alert alert-warning">
+                    El precio debe ser un número mayor o igual a 0.
+                </div>
+            `;
+
+            return false;
+        }
     }
 
     mensajeProducto.innerHTML = "";
+
     return true;
 }
 
 productoForm.addEventListener("submit", function (event) {
+
     event.preventDefault();
 
     if (validarProducto()) {
@@ -33,6 +45,4 @@ productoForm.addEventListener("submit", function (event) {
     }
 });
 
-nombreProducto.addEventListener("input", validarProducto);
 precioProducto.addEventListener("input", validarProducto);
-descripcionProducto.addEventListener("input", validarProducto);

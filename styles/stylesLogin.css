@@ -33,3 +33,43 @@ body {
 .login-container .alert {
   border-radius: 8px;
 }
+
+/* Configuración global */
+
+body {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+body.modo-oscuro {
+  background-color: #212529;
+  color: #fff;
+}
+
+.modo-oscuro-elemento {
+  background-color: #212529 !important;
+  color: #fff !important;
+  border-color: #495057 !important;
+}
+
+.modo-oscuro-input {
+  background-color: #343a40 !important;
+  color: #fff !important;
+  border-color: #6c757d !important;
+}
+
+.modo-oscuro-input::placeholder {
+  color: #adb5bd !important;
+}
+
+.modo-oscuro-input:focus {
+  background-color: #343a40 !important;
+  color: #fff !important;
+}
+
+.modo-oscuro .alert {
+  color: #fff;
+}
+
+.modo-oscuro table {
+  color: #fff;
+}
