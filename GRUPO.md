@@ -1,6 +1,6 @@
-Grupo: ManijaWeb Team
+## Grupo: ManijaWeb Team ##
 
-Integrantes:
+# Integrantes:
 - Ferger, Ariel
 - Gallardo, Octavio
 - Krans, Máximo
