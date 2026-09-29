@@ -1,4 +1,4 @@
-## Grupo: ManijaWeb Team ##
+## Grupo: 12 - ManijaWeb Team ##
 
 # Integrantes:
 - Ferger, Ariel
