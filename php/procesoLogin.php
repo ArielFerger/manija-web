@@ -12,7 +12,7 @@ unset($_SESSION["usuario"]);
 
 $usuario = trim($_POST["usuario"] ?? "");
 $password = $_POST["password"] ?? "";
-$captcha = trim($_POST["captcha"] ?? "");
+$captcha = strtoupper(trim($_POST["captcha"] ?? ""));
 
 $usuarioCorrecto = "fcytuader";
 $passwordCorrecta = "programacionavanzada";
@@ -22,11 +22,11 @@ if ($usuario === "" || $password === "" || $captcha === "") {
     exit;
 }
 
-// Cada captcha se puede usar una sola vez.
-$respuestaCorrecta = $_SESSION["captcha"] ?? null;
+// Se borra después de cada intento para que no se pueda reutilizar.
+$codigoCorrecto = $_SESSION["captcha"] ?? null;
 unset($_SESSION["captcha"]);
 
-if ($respuestaCorrecta === null || $captcha !== (string) $respuestaCorrecta) {
+if ($codigoCorrecto === null || $captcha !== $codigoCorrecto) {
     header("Location: ../pages/login.php?error=captcha");
     exit;
 }

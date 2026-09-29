@@ -145,6 +145,20 @@ body::before {
   border-radius: 8px;
 }
 
+.captcha-codigo {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 8px 16px;
+  border: 1px solid #adb5bd;
+  border-radius: 6px;
+  background: #e9ecef;
+  color: #212529;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  user-select: none;
+}
+
 /* =========================================================
    PANEL DE ADMINISTRACIÓN
    ========================================================= */

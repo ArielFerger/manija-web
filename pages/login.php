@@ -6,10 +6,13 @@ if (isset($_SESSION["usuario"])) {
     exit;
 }
 
-// La respuesta queda guardada en el servidor.
-$numero1 = random_int(1, 9);
-$numero2 = random_int(1, 9);
-$_SESSION["captcha"] = $numero1 + $numero2;
+// Generamos un código nuevo cada vez que se abre el formulario.
+$caracteres = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+$codigo = "";
+for ($i = 0; $i < 5; $i++) {
+    $codigo .= $caracteres[random_int(0, strlen($caracteres) - 1)];
+}
+$_SESSION["captcha"] = $codigo;
 
 include("../php/includesBasics/header.php");
 ?>
@@ -39,7 +42,7 @@ include("../php/includesBasics/header.php");
                 <?php elseif ($_GET["error"] === "captcha"): ?>
 
                     <div class="alert alert-danger" role="alert">
-                        El resultado del captcha es incorrecto. Intentá nuevamente.
+                        El código de verificación es incorrecto. Intentá nuevamente.
                     </div>
 
                 <?php endif; ?>
@@ -86,10 +89,13 @@ include("../php/includesBasics/header.php");
 
 
                 <div class="mb-3">
-                    <label for="captcha" class="form-label">
-                        Captcha: ¿cuánto es <?php echo $numero1; ?> + <?php echo $numero2; ?>?
-                    </label>
-                    <input type="number" class="form-control" id="captcha" name="captcha" required>
+                    <label for="captcha" class="form-label">Escribí el código que ves:</label>
+                    <div class="captcha-codigo" aria-label="Código de verificación">
+                        <?php echo $codigo; ?>
+                    </div>
+                    <input type="text" class="form-control" id="captcha" name="captcha"
+                           maxlength="5" autocomplete="off" required>
+                    <a href="login.php" class="small">Generar otro código</a>
                 </div>
 
 
