@@ -18,7 +18,7 @@ Esto es una página web básica desarrollada utilizando tecnologías de redes, c
 ->usuario: fcytuader.
 ->contraseña: programacionavanzada.
 - La aplicación unicamente acepta como validos estos parametros, dados por la consigna, como llave de ingreso.
-- Si el captcha no se realiza o se responde incorrectamente tampoco se permite el ingreso a la página.
+- Si el captcha no se realiza, o se responde incorrectamente, tampoco se permite el ingreso a la página.
 - El captcha muestra un código de cinco letras y números. Se valida en PHP con la sesión, acepta mayúsculas o minúsculas y se puede generar otro código desde el formulario. No necesita claves ni servicios externos.
 
 ## Autores
