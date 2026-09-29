@@ -44,7 +44,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
         <a
             class="navbar-brand fw-bold"
-            href="index.php"
+            href="inicio.php"
         >
             Manija Web
         </a>
@@ -76,7 +76,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
                     <a
                         class="nav-link"
-                        href="index.php"
+                        href="inicio.php"
                     >
                         Inicio
                     </a>
@@ -85,6 +85,12 @@ if (session_status() === PHP_SESSION_NONE) {
 
 
                 <?php if (isset($_SESSION["usuario"])): ?>
+
+                    <li class="nav-item">
+                        <span class="nav-link text-white">
+                            Logueado como: <?php echo htmlspecialchars($_SESSION["usuario"], ENT_QUOTES, "UTF-8"); ?>
+                        </span>
+                    </li>
 
                     <li class="nav-item">
 

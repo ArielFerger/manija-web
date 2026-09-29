@@ -1,4 +1,18 @@
-<?php include("../php/includesBasics/header.php"); ?>
+<?php
+session_start();
+
+if (isset($_SESSION["usuario"])) {
+    header("Location: inicio.php");
+    exit;
+}
+
+// La respuesta queda guardada en el servidor.
+$numero1 = random_int(1, 9);
+$numero2 = random_int(1, 9);
+$_SESSION["captcha"] = $numero1 + $numero2;
+
+include("../php/includesBasics/header.php");
+?>
 
 <div class="container login-container">
 
@@ -20,6 +34,12 @@
 
                     <div class="alert alert-danger" role="alert">
                         Usuario o contraseña incorrectos.
+                    </div>
+
+                <?php elseif ($_GET["error"] === "captcha"): ?>
+
+                    <div class="alert alert-danger" role="alert">
+                        El resultado del captcha es incorrecto. Intentá nuevamente.
                     </div>
 
                 <?php endif; ?>
@@ -62,6 +82,14 @@
                         autocomplete="current-password"
                     >
 
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="captcha" class="form-label">
+                        Captcha: ¿cuánto es <?php echo $numero1; ?> + <?php echo $numero2; ?>?
+                    </label>
+                    <input type="number" class="form-control" id="captcha" name="captcha" required>
                 </div>
 
 

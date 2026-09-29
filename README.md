@@ -1,6 +1,14 @@
 # manija-web 
 Esto es una página web básica desarrollada utilizando tecnologías de redes, con PHP como lenguaje primario.
 
+## Segunda entrega: captcha y sesiones
+
+Para probar el proyecto, iniciá un servidor PHP desde la carpeta del proyecto con `php -S localhost:8000` y abrí `http://localhost:8000/pages/login.php`.
+
+El usuario es `fcytuader` y la contraseña es `programacionavanzada`. También hay que resolver la suma del captcha que aparece en pantalla. Si los tres datos son correctos, se crea la sesión y se abre `pages/inicio.php`. Esa página y la de administración redirigen al login cuando no hay una sesión de usuario. El enlace «Cerrar sesión» finaliza la sesión.
+
+El nombre del grupo y sus integrantes también están en `GRUPO_E_INTEGRANTES.txt`.
+
 # DESARROLLO #
 
 ## Nombre y Descripción
@@ -51,4 +59,3 @@ Si es correcta la autenticación mostrar el texto "ingreso correctamente" en cas
 
 Adjuntar un comprimido en el formato que desee, conteniendo todo el código fuente funcional y un archivo con el nombre del grupo y los integrantes.
 El TP se evalúa con una nota de 0 a 100, dependiendo del cumplimiento del requerimiento del mismo, contemplando los detalles en su desarrollo.
-
