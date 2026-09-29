@@ -1,14 +1,6 @@
 # manija-web 
 Esto es una página web básica desarrollada utilizando tecnologías de redes, con PHP como lenguaje primario.
 
-## Segunda entrega: captcha y sesiones
-
-Para probar el proyecto, iniciá un servidor PHP desde la carpeta del proyecto con `php -S localhost:8000` y abrí `http://localhost:8000/pages/login.php`.
-
-El usuario es `fcytuader` y la contraseña es `programacionavanzada`. También hay que resolver la suma del captcha que aparece en pantalla. Si los tres datos son correctos, se crea la sesión y se abre `pages/inicio.php`. Esa página y la de administración redirigen al login cuando no hay una sesión de usuario. El enlace «Cerrar sesión» finaliza la sesión.
-
-El nombre del grupo y sus integrantes también están en `GRUPO_E_INTEGRANTES.txt`.
-
 # DESARROLLO #
 
 ## Nombre y Descripción
@@ -22,10 +14,11 @@ El nombre del grupo y sus integrantes también están en `GRUPO_E_INTEGRANTES.tx
 * JavaScript 
 
 ## Utilización
-- Para ingresar a la página, deberemos entrar con nuestro usuario y contraseña asignados.
+- Para ingresar a la página, deberemos entrar con nuestro usuario y contraseña asignados, también realizando un captcha.
 ->usuario: fcytuader.
 ->contraseña: programacionavanzada.
 - La aplicación unicamente acepta como validos estos parametros, dados por la consigna, como llave de ingreso.
+- Si el captcha no se realiza o se responde incorrectamente tampoco se permite el ingreso a la página.
 
 ## Autores
 * Desarrollo y Mantenimiento por ManijaWeb Team.
@@ -37,14 +30,17 @@ Integrantes:
 - Leonetti, Franco.
 - Zaragoza, Juan Ignacio.
 
-# ENUNCIADO #
+# ENUNCIADOS #
 
-## Contexto
+## Contexto ##
 Deberán realizar un trabajo práctico con el fin de profundizar los conocimientos adquiridos en la teoría y práctica a fin de resolver problemas reales del desarrollo de sistemas.
 
-Este primer TP consiste en desarrollar parte de un software de administración de algún tema que les sea de interés. 
+Este Trabajo Práctico consiste en desarrollar parte de un software de administración de algún tema que les sea de interés. 
 
 ## Los requerimientos iniciales son:
+
+- ENTREGA 1:
+
 * Utilizar PHP como lenguaje backend.
 * Utilizar HTML5/CSS.
 * Desarrollar un formulario de Login (usuario y contraseña) para autenticar el ingreso a su aplicación.
@@ -59,3 +55,16 @@ Si es correcta la autenticación mostrar el texto "ingreso correctamente" en cas
 
 Adjuntar un comprimido en el formato que desee, conteniendo todo el código fuente funcional y un archivo con el nombre del grupo y los integrantes.
 El TP se evalúa con una nota de 0 a 100, dependiendo del cumplimiento del requerimiento del mismo, contemplando los detalles en su desarrollo.
+
+- ENTREGA 2:
+
+* Captcha con su respectiva validación al formulario de login.
+* Utilización de sesiones y verificación.
+* Redirección luego de un correcto login  a una página inicio.php la cual deberá mostrar una bienvenida a nuestro sitio.
+* En caso de que el login no sea correcto, informarlo y volver al Form inicial.
+* El proceso de login deberá contemplar que el usuario ingrese correctamente el valor del captcha. 
+
+* Una vez realizada la autenticación se deberá:
+-> Crear una session y almacenar el nombre del usuario en la misma. 
+-> Redireccionar la navegacion a un script inicio.php el cual deberá tener incluidos el header y footer. El header deberá mostrar la leyenda "Logueado como: <<nombreDelUsuario>>.
+-> Solamente podremos acceder al script inicio.php si está creada la session (si el usuario se ha logueado correctamente). De no ser así se deberá redirigir la navegacion al formulario de login.
