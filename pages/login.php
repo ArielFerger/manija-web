@@ -24,6 +24,9 @@ include("../php/includesBasics/header.php");
         <div class="card-body">
 
             <h2 class="text-center mb-4">Iniciar sesión</h2>
+            <?php if(($_GET["mensaje"] ?? "") === "registro"): ?>
+                <div class="alert alert-success" role="status">Cuenta creada correctamente. Ya podés iniciar sesión.</div>
+            <?php endif; ?>
 
             <?php if (isset($_GET["error"])): ?>
 
@@ -113,6 +116,7 @@ include("../php/includesBasics/header.php");
                 </div>
 
             </form>
+            <p class="text-center mt-3 mb-0">¿No tenés cuenta? <a href="registro.php">Crear cuenta</a></p>
 
         </div>
 

@@ -83,3 +83,11 @@ Si MySQL está apagado o la configuración es incorrecta, aparece un mensaje que
 - Consultas preparadas, escape de texto al mostrarlo y token de sesión en los formularios del ABM.
 
 Los productos que antes estaban en localStorage no se importan automáticamente, porque pertenecen a cada navegador. La base entregada empieza sin productos para que puedan cargar los suyos.
+
+## Registro de usuarios
+
+Desde el login, **Crear cuenta** abre `pages/registro.php`. Se pide un usuario, contraseña de al menos 8 caracteres y su repetición. JavaScript revisa los datos y PHP vuelve a validarlos. Los nombres de usuario no se pueden repetir, tampoco cambiando sólo las mayúsculas.
+
+`php/procesoRegistro.php` procesa el formulario y `modelos/usuario.php` guarda la cuenta con `password_hash`. Después vuelve al login con un mensaje de éxito. El registro usa la tabla `usuarios` existente: no hay que modificar ni volver a importar la base.
+
+`js/validarRegistro.js` contiene las validaciones del formulario. Si MySQL está apagado, se muestra un mensaje amigable. Las cuentas registradas pueden iniciar sesión y usar el mismo ABM compartido que el usuario original.

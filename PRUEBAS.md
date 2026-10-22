@@ -30,3 +30,23 @@ Pruebas realizadas con PHP 8.2.12, Apache y MySQL Community Server 8.4.13.
 También se revisó en el navegador: botón de login deshabilitado con campos pendientes; validación del formulario de productos; alta; formulario de edición precargado; DataTables con búsqueda y paginación. Se quitaron los productos de prueba después de verificar el sistema.
 
 Los 15 archivos PHP pasaron php -l.
+
+## Registro de usuarios
+
+- Correcto: Login incluye acceso al registro.
+- Correcto: Acceso GET al proceso vuelve al formulario.
+- Correcto: Registro rechaza usuario vacío.
+- Correcto: Registro rechaza caracteres inválidos.
+- Correcto: Registro rechaza contraseña corta.
+- Correcto: Registro rechaza contraseña demasiado larga.
+- Correcto: Registro rechaza contraseñas distintas.
+- Correcto: Registro rechaza token incorrecto.
+- Correcto: Registro crea usuario y vuelve al login.
+- Correcto: Registro rechaza usuario duplicado.
+- Correcto: Registro rechaza duplicado con mayúsculas.
+- Correcto: Contraseña guardada como hash.
+- Correcto: Usuario registrado puede iniciar sesión.
+- Correcto: Usuario registrado accede al ABM.
+- Correcto: Registro redirige usuarios autenticados.
+
+Después de agregar el registro, los 17 archivos PHP pasaron la revisión de sintaxis. Las cuentas creadas durante las pruebas fueron eliminadas.
