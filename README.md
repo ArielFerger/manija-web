@@ -1,4 +1,4 @@
-# manija-web 
+# manija-web #
 Esto es una página web básica desarrollada utilizando tecnologías de redes, con PHP como lenguaje primario.
 
 # DESARROLLO #
@@ -14,16 +14,6 @@ Esto es una página web básica desarrollada utilizando tecnologías de redes, c
 * JavaScript
 * MariaDB, como base de datos.
 
-## Utilización
-- Para ingresar a la página, debemos registrar una cuenta nueva.
-- Luego, entrar con nuestro usuario y contraseña, también realizando un captcha.
-* Por defecto tenemos un usuario público con las siguientes credenciales asignadas:
-->usuario: fcytuader
-->contraseña: programacionavanzada
-- La aplicación unicamente acepta como validos estos parametros, dados por la consigna, como llave de ingreso.
-- Si el captcha no se realiza, o se responde incorrectamente, tampoco se permite el ingreso a la página.
-- El captcha muestra un código de cinco letras y números. Se valida en PHP con la sesión, acepta mayúsculas o minúsculas y se puede generar otro código desde el formulario. No necesita claves ni servicios externos.
-
 ## Autores
 * Desarrollo y Mantenimiento por ManijaWeb Team.
 
@@ -33,6 +23,33 @@ Integrantes:
 - Krans, Máximo.
 - Leonetti, Franco.
 - Zaragoza, Juan Ignacio.
+
+
+# UTILIZACIÓN #
+
+## Login y Registro de cuentas
+- Para ingresar a la página, debemos registrar una cuenta nueva.
+- Luego, entrar con nuestro usuario y contraseña, también realizando un captcha.
+* Por defecto tenemos un usuario público con las siguientes credenciales asignadas:
+->usuario: fcytuader
+->contraseña: programacionavanzada
+- La aplicación unicamente acepta como validos estos parametros, dados por la consigna, como llave de ingreso.
+- Si el captcha no se realiza, o se responde incorrectamente, tampoco se permite el ingreso a la página.
+- El captcha muestra un código de cinco letras y números. Se valida en PHP con la sesión, acepta mayúsculas o minúsculas y se puede generar otro código desde el formulario. No necesita claves ni servicios externos.
+
+## Administración de Productos
+- Al ingresar en la pestaña de administración podremos ver un formulario de creación de productos.
+- Al crear un producto con nombre, precio y descripción, podremos darlo de alta en nuestra base de datos.
+- Los productos cargados se muestran en esta misma pestaña en un listado.
+- Desde esta pestaña se nos permite administrar la lista de productos:
+* Podremos editar la información del producto cargado
+* Se puede eliminar productos de la lista
+
+## Accesibilidiad y Personalización
+- En la pestaña de administración se tiene acceso a opciones de accesibilidad:
+* Tema de la página entre claro y oscuro.
+* Selección de fuente para facilitar la lectura.
+
 
 # ENUNCIADOS #
 
