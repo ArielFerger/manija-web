@@ -21,10 +21,12 @@
 
 
 <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    src="../librerias/bootstrap.bundle.min.js"
 ></script>
 
 
+<script src="../librerias/jquery.min.js"></script>
+<script src="../librerias/dataTables.min.js"></script>
 </body>
 
 </html>

@@ -45,6 +45,8 @@ include("../php/includesBasics/header.php");
                         El código de verificación es incorrecto. Intentá nuevamente.
                     </div>
 
+                <?php elseif ($_GET["error"] === "bd"): ?>
+                    <div class="alert alert-danger" role="alert">No pudimos conectarnos a la base de datos. Revisá que MySQL esté iniciado e intentá nuevamente.</div>
                 <?php endif; ?>
 
             <?php endif; ?>
@@ -66,7 +68,7 @@ include("../php/includesBasics/header.php");
                         id="usuario"
                         name="usuario"
                         placeholder="Ingrese su usuario"
-                        autocomplete="username"
+                        autocomplete="username" required maxlength="50"
                     >
 
                 </div>
@@ -82,7 +84,7 @@ include("../php/includesBasics/header.php");
                         id="password"
                         name="password"
                         placeholder="Ingrese su contraseña"
-                        autocomplete="current-password"
+                        autocomplete="current-password" required maxlength="200"
                     >
 
                 </div>

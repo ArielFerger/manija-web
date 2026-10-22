@@ -24,7 +24,7 @@ if (session_status() === PHP_SESSION_NONE) {
     >
 
     <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        href="../librerias/bootstrap.min.css"
         rel="stylesheet"
     >
 
@@ -33,6 +33,7 @@ if (session_status() === PHP_SESSION_NONE) {
         href="../styles/stylesLogin.css"
     >
 
+    <link rel="stylesheet" href="../librerias/dataTables.min.css">
 </head>
 
 

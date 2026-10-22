@@ -1,66 +1,29 @@
 const productoForm = document.getElementById("productoForm");
-const nombreProducto = document.getElementById("nombreProducto");
-const precioProducto = document.getElementById("precioProducto");
-const descripcionProducto = document.getElementById("descripcionProducto");
-const mensajeProducto = document.getElementById("mensajeProducto");
-const btnGuardarProducto = document.getElementById("btnGuardarProducto");
+if(productoForm){
+    const nombre = document.getElementById("nombreProducto");
+    const precio = document.getElementById("precioProducto");
+    const descripcion = document.getElementById("descripcionProducto");
+    const mensaje = document.getElementById("mensajeProducto");
+    const boton = document.getElementById("btnGuardarProducto");
 
-function obtenerEstadoPrecio() {
-
-    const precio = precioProducto.value.trim();
-
-    if (precio === "") {
-        return { valido: false, vacio: true };
+    function validarProducto(){
+        const valido = nombre.value.trim() !== "" && descripcion.value.trim() !== "" && /^\d{1,8}(\.\d{1,2})?$/.test(precio.value);
+        boton.disabled = !valido;
+        return valido;
     }
 
-    const precioNumerico = Number(precio);
-
-    if (isNaN(precioNumerico) || precioNumerico < 0) {
-        return { valido: false, vacio: false };
-    }
-
-    return { valido: true, vacio: false };
+    productoForm.addEventListener("input", validarProducto);
+    productoForm.addEventListener("submit", function(event){
+        if(!validarProducto()){
+            event.preventDefault();
+            mensaje.textContent = "Revisá los campos antes de guardar.";
+        }
+    });
+    validarProducto();
 }
 
-function validarProducto() {
-    const nombreCompleto = nombreProducto.value.trim() !== "";
-    const descripcionCompleta = descripcionProducto.value.trim() !== "";
-    const estadoPrecio = obtenerEstadoPrecio();
-
-    if (!estadoPrecio.vacio && !estadoPrecio.valido) {
-
-        mensajeProducto.innerHTML = `
-            <div class="alert alert-warning py-2 mb-0">
-                El precio debe ser un número mayor o igual a 0.
-            </div>
-        `;
-
-    } else {
-
-        mensajeProducto.innerHTML = "";
-    }
-
-    const formularioValido =
-        nombreCompleto &&
-        descripcionCompleta &&
-        estadoPrecio.valido;
-
-    btnGuardarProducto.disabled = !formularioValido;
-
-    return formularioValido;
-}
-
-productoForm.addEventListener("submit", function (event) {
-
-    event.preventDefault();
-
-    if (validarProducto()) {
-        guardarProducto();
+document.addEventListener("submit", function(event){
+    if(event.target.matches(".formEliminar") && !confirm("¿Querés eliminar este producto?")){
+        event.preventDefault();
     }
 });
-
-[nombreProducto, precioProducto, descripcionProducto].forEach(function (campo) {
-    campo.addEventListener("input", validarProducto);
-});
-
-validarProducto();

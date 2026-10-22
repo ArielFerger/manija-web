@@ -1,13 +1,5 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-if (!isset($_SESSION["usuario"])) {
-    header("Location: login.php");
-    exit;
-}
-
+require_once __DIR__."/../controladores/productos.php";
 include("../php/includesBasics/header.php");
 ?>
 
@@ -26,11 +18,17 @@ include("../php/includesBasics/header.php");
             id="cantidadProductos"
             class="badge text-bg-primary fs-6 px-3 py-2"
         >
-            0 productos
+            <?= count($productos) ?> <?= count($productos) === 1 ? "producto" : "productos" ?>
         </span>
 
     </div>
 
+    <?php if($error !== ""): ?>
+        <div class="alert alert-danger" role="alert"><?= htmlspecialchars($error) ?></div>
+    <?php endif; ?>
+    <?php if($mensaje !== ""): ?>
+        <div class="alert alert-success" role="status"><?= htmlspecialchars($mensaje) ?></div>
+    <?php endif; ?>
     <div class="row g-4">
 
         <div class="col-lg-8">
@@ -39,12 +37,14 @@ include("../php/includesBasics/header.php");
 
                 <div class="card-header d-flex align-items-center gap-2">
                     <span>➕</span>
-                    <h2 class="h5 mb-0">Nuevo producto</h2>
+                    <h2 class="h5 mb-0"><?= !empty($productoEditar["id"]) ? "Editar producto" : "Nuevo producto" ?></h2>
                 </div>
 
                 <div class="card-body">
 
-                    <?php include("../php/includesBasics/crearProductoForm.php"); ?>
+                    <?php if(!$errorBD){ include("../php/includesBasics/crearProductoForm.php"); }else{ ?>
+<p>No se pueden guardar cambios hasta recuperar la conexión.</p>
+<?php } ?>
 
                 </div>
 
@@ -129,6 +129,6 @@ include("../php/includesBasics/header.php");
 </div>
 
 <script src="../js/validarProductoForm.js"></script>
-<script src="../js/guardarProductos.js"></script>
+<script src="../js/tablaProductos.js"></script>
 
 <?php include("../php/includesBasics/footer.php"); ?>
