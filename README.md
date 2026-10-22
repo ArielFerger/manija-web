@@ -1,64 +1,87 @@
-# ManijaWeb - Entrega 3
+# manija-web 
+Esto es una página web básica desarrollada utilizando tecnologías de redes, con PHP como lenguaje primario.
 
-Grupo 12 - ManijaWeb Team. Los integrantes están en `GRUPO12.md`.
+# DESARROLLO #
 
-Es la segunda entrega con usuarios y productos guardados en MySQL. Se mantienen el diseño, el captcha, las sesiones, el modo oscuro y la elección de fuente.
+## Nombre y Descripción
+- ManijaWeb es una Aplicación Web simple de formulario login desarrollada como prueba de conocimiento de conceptos básicos de desarrollo web, programación en PHP y JavaScript, utilización de HTML/CSS, integración de Base de Datos, aplicación de librerias y manejo de directorios.
+- También incluye un sistema de administracion de productos, donde podemos gestionarlos y listarlos.
+- Incluimos tambien configuraciones de accesibilidad, como el tema en modo claro/oscuro y el permitir cambiar la fuente de la página.
 
-## Para ejecutarlo
+## Tecnologias
+* PHP, como principal lenguage backend.
+* HTML5/CSS
+* JavaScript
+* MariaDB, como base de datos.
 
-Necesitás Apache, PHP 8.2 o superior con mysqli y mbstring, y MySQL 8.0 o superior. No hace falta Composer, Node ni conexión a Internet: las librerías vienen en la carpeta `librerias`.
+## Utilización
+- Para ingresar a la página, debemos registrar una cuenta nueva.
+- Luego, entrar con nuestro usuario y contraseña, también realizando un captcha.
+* Por defecto tenemos un usuario público con las siguientes credenciales asignadas:
+->usuario: fcytuader
+->contraseña: programacionavanzada
+- La aplicación unicamente acepta como validos estos parametros, dados por la consigna, como llave de ingreso.
+- Si el captcha no se realiza, o se responde incorrectamente, tampoco se permite el ingreso a la página.
+- El captcha muestra un código de cinco letras y números. Se valida en PHP con la sesión, acepta mayúsculas o minúsculas y se puede generar otro código desde el formulario. No necesita claves ni servicios externos.
 
-1. Copiá la carpeta `manija-web` dentro de `htdocs`. En XAMPP para Windows suele ser `C:\xampp\htdocs`; en Linux, `/opt/lampp/htdocs`.
-2. Iniciá Apache y **MySQL**. XAMPP trae MariaDB; si usás MySQL aparte, no inicies ambos en el mismo puerto.
-3. Desde tu administrador de MySQL, importá `database/manija_web.sql`. Crea la base, las dos tablas y el usuario de prueba. El archivo no borra los productos si lo importás otra vez.
-4. Como administrador de MySQL, ejecutá también `database/usuario_mysql.sql`. Crea una cuenta para que PHP acceda a la base. Si ya tenés una cuenta propia, podés usarla en el paso siguiente.
-5. Revisá `config/conexion.php`: servidor `127.0.0.1`, usuario de MySQL `manija`, contraseña `manija123`, base `manija_web` y puerto `3306`. Cambiá esos valores si tu instalación usa otros.
-6. Abrí `http://localhost/manija-web/`.
+## Autores
+* Desarrollo y Mantenimiento por ManijaWeb Team.
 
-Para importar con la consola, desde la carpeta del proyecto:
+Integrantes:
+- Ferger, Ariel.
+- Gallardo Octavio.
+- Krans, Máximo.
+- Leonetti, Franco.
+- Zaragoza, Juan Ignacio.
 
-```sh
-mysql -u root -p < database/manija_web.sql
-mysql -u root -p < database/usuario_mysql.sql
-```
+# ENUNCIADOS #
 
-## Ingreso de prueba
+## Contexto ##
+Deberán realizar un trabajo práctico con el fin de profundizar los conocimientos adquiridos en la teoría y práctica a fin de resolver problemas reales del desarrollo de sistemas.
 
-- Usuario de la página: `fcytuader`
-- Contraseña de la página: `programacionavanzada`
-- Captcha: escribí el código que aparece en el formulario.
+Este Trabajo Práctico consiste en desarrollar parte de un software de administración de algún tema que les sea de interés. 
 
-La cuenta `manija` es la conexión de PHP con MySQL. La cuenta `fcytuader` es la que se escribe en el login. Son cuentas distintas.
+## Los requerimientos iniciales son:
 
-La contraseña del login se guarda como un hash creado con `password_hash`. `password_verify` comprueba lo escrito contra ese hash. No se compara con una contraseña fija en el código PHP.
+- ENTREGA 1:
 
-## Qué guarda cada carpeta
+* Utilizar PHP como lenguaje backend.
+* Utilizar HTML5/CSS.
+* Desarrollar un formulario de Login (usuario y contraseña) para autenticar el ingreso a su aplicación.
+* Desarrollar un script en javascript que valide que estos datos no estén vacíos. Recién pasada esta validación se deberá habilitar el botón de envío de datos del formulario.
+* Desarrollar un script PHP denominado "procesoLogin.php" el cual debe validar los datos enviados por el Form y comprobar el correcto ingreso con el usuario y contraseña:
+->usuario: fcytuader.
+->contraseña: programacionavanzada.
 
-| Carpeta | Contenido |
-| --- | --- |
-| `config` | La conexión a MySQL. Es el archivo que se cambia si el servidor tiene otro usuario o contraseña. |
-| `database` | El SQL para crear la base, sus tablas y el usuario de conexión. |
-| `modelos` | Las consultas a la base: buscar un usuario, listar, buscar, agregar, modificar y eliminar productos. |
-| `controladores` | El control del ABM: recibe el formulario, revisa los datos, llama al modelo y prepara la lista para mostrar. |
-| `pages` | Las pantallas de login, bienvenida y administración. Son las vistas. |
-| `php` | El proceso del login, el cierre de sesión y la comprobación de sesión. |
-| `php/includesBasics` | Partes compartidas: cabecera, pie, formulario y tabla de productos. También son vistas. |
-| `js` | Validaciones del login y productos, confirmación de baja, configuración visual e inicio de DataTables. |
-| `styles` | Los estilos propios de la página. |
-| `image` | Las imágenes y el icono que ya tenía la segunda entrega. |
-| `librerias` | Bootstrap, jQuery y DataTables descargados, para usarlos sin Internet. |
+Si es correcta la autenticación mostrar el texto "ingreso correctamente" en caso contrario informarlo y volver al Form inicial.
+* Crear la estructura de directorios necesarias para alojar imágenes, script en javascript, php, css, etc.
+* Programación de la cabecera (header)  y del pie (footer) de la aplicación.
 
-`index.php` redirige a inicio. Si no existe una sesión, inicio manda al login.
+Adjuntar un comprimido en el formato que desee, conteniendo todo el código fuente funcional y un archivo con el nombre del grupo y los integrantes.
+El TP se evalúa con una nota de 0 a 100, dependiendo del cumplimiento del requerimiento del mismo, contemplando los detalles en su desarrollo.
 
-## Cómo funciona el ABM
+- ENTREGA 2:
 
-1. En Administración, completá nombre, precio y descripción y presioná **Guardar producto**. Se ejecuta un `INSERT`.
-2. **Editar** carga el producto en el mismo formulario. **Guardar cambios** ejecuta un `UPDATE`; **Cancelar edición** vuelve al alta.
-3. **Eliminar** pide confirmación y envía un formulario que ejecuta un `DELETE`.
-4. Cada envío vuelve a la lista. Actualizar el navegador no repite el alta.
-5. DataTables permite buscar, ordenar por columnas y cambiar de página. Los productos se leen de MySQL, no de localStorage.
+* Captcha con su respectiva validación al formulario de login.
+* Utilización de sesiones y verificación.
+* Redirección luego de un correcto login  a una página inicio.php la cual deberá mostrar una bienvenida a nuestro sitio.
+* En caso de que el login no sea correcto, informarlo y volver al Form inicial.
+* El proceso de login deberá contemplar que el usuario ingrese correctamente el valor del captcha. 
 
-El precio acepta cero y hasta dos decimales, con un máximo de 99999999.99. El nombre admite 120 caracteres y la descripción 1000. PHP vuelve a validar los datos aunque se desactive JavaScript.
+* Una vez realizada la autenticación se deberá:
+-> Crear una session y almacenar el nombre del usuario en la misma. 
+-> Redireccionar la navegacion a un script inicio.php el cual deberá tener incluidos el header y footer. El header deberá mostrar la leyenda "Logueado como: <<nombreDelUsuario>>.
+-> Solamente podremos acceder al script inicio.php si está creada la session (si el usuario se ha logueado correctamente). De no ser así se deberá redirigir la navegacion al formulario de login.
+
+- ENTREGA 3:
+
+* Incorporar un ABM (Alta, Baja y Modificación) al sistema desarrollado hasta al momento y que dicho ABM persista en una Base de Datos.
+* Autenticar el usuario y la contraseña con la BD. 
+* Crear una base de datos en el SGBD, que contemple como mínimo una tabla para el/los usuario/s y contraseña/s,  y otra para almacenar los datos del producto elegido para el ABM.
+* Validar la conexión a la base de datos, identificando si esta falla, y mostrando un texto amigable al usuario.
+* Incluir código JavaScript al menos en las validaciones del login.
+* Incluir y utilizar al menos una librería JavaScript ( ej: DataTables).
+* Sera contemplado la incorporación de una estructura MVC (Modelo, Vista, Controlador) y/o similares.
 
 ## MVC sencillo
 
@@ -69,25 +92,3 @@ El login sigue el mismo reparto: `pages/login.php` muestra el formulario, `php/p
 ## Si falla la base
 
 Si MySQL está apagado o la configuración es incorrecta, aparece un mensaje que explica que no se pudo acceder a la base. En Administración no se muestra el formulario para guardar hasta recuperar la conexión. El detalle técnico va al registro de PHP, no a la pantalla.
-
-## Requisitos incluidos
-
-- Alta, baja, modificación y listado de productos persistentes en MySQL.
-- Login autenticado con la tabla `usuarios` y contraseña con hash.
-- Tablas `usuarios` y `productos`, con identificador propio y precio decimal.
-- Mensajes amigables ante errores de conexión o consulta.
-- Validación JavaScript del login y los productos.
-- DataTables utilizado en la tabla, más Bootstrap y jQuery locales.
-- Separación simple entre modelo, vista y controlador.
-- Sesiones, captcha y protección de las pantallas internas de la segunda entrega.
-- Consultas preparadas, escape de texto al mostrarlo y token de sesión en los formularios del ABM.
-
-Los productos que antes estaban en localStorage no se importan automáticamente, porque pertenecen a cada navegador. La base entregada empieza sin productos para que puedan cargar los suyos.
-
-## Registro de usuarios
-
-Desde el login, **Crear cuenta** abre `pages/registro.php`. Se pide un usuario, contraseña de al menos 8 caracteres y su repetición. JavaScript revisa los datos y PHP vuelve a validarlos. Los nombres de usuario no se pueden repetir, tampoco cambiando sólo las mayúsculas.
-
-`php/procesoRegistro.php` procesa el formulario y `modelos/usuario.php` guarda la cuenta con `password_hash`. Después vuelve al login con un mensaje de éxito. El registro usa la tabla `usuarios` existente: no hay que modificar ni volver a importar la base.
-
-`js/validarRegistro.js` contiene las validaciones del formulario. Si MySQL está apagado, se muestra un mensaje amigable. Las cuentas registradas pueden iniciar sesión y usar el mismo ABM compartido que el usuario original.
